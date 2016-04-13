@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="twitterGenerator">
+  <head>
+    <meta charset="utf-8">
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="assets/client.min.js"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <title>MSTH</title>
+  </head>
+  <body ng-controller="MainController">
+    <header>
+      <h1>Make Some Twitter Handles</h1>
+    </header>
+    <button ng-click="suggest()">Get Handle Suggestion</button>
+    <ul>
+      <li ng-repeat="handleObject in handleList">
+         <a ng-class="handleObject.available" ng-href="https://twitter.com/{{handleObject.name}}" target="_blank">@{{handleObject.name}}</a>
+         <div class="radios">
+         <label><input name = "{{handleObject.name}}" ng-model="handleObject.available" type="radio" value="green"></input>
+Available</label>
+        <label><input name="{{handleObject.name}}" ng-model="handleObject.available" type="radio" value="red"></input>
+Unavailable</label>
+        </div>
+      </li>
+    </ul>
+  </body>
+
+</html>
